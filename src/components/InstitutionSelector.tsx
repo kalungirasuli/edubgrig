@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { institutionService } from '../firebase/services';
 
 interface Institution {
     id: string;
@@ -15,71 +16,21 @@ const InstitutionSelector: React.FC = () => {
     const [institutions, setInstitutions] = useState<Institution[]>([]);
     const [filteredInstitutions, setFilteredInstitutions] = useState<Institution[]>([]);
 
-    // Sample institutions data - in a real app, this would come from an API or database
+    // Fetch institutions data from Firebase
     useEffect(() => {
-        // Simulating API call
-        const fetchInstitutions = () => {
-            const data: Institution[] = [
-                {
-                    id: '1',
-                    name: 'University of Technology',
-                    location: 'New York, NY',
-                    type: 'university',
-                    logo: '/images/institutions/uni1.svg'
-                },
-                {
-                    id: '2',
-                    name: 'State College',
-                    location: 'Boston, MA',
-                    type: 'college',
-                    logo: '/images/institutions/college1.svg'
-                },
-                {
-                    id: '3',
-                    name: 'Technical Institute',
-                    location: 'San Francisco, CA',
-                    type: 'institute',
-                    logo: '/images/institutions/tech1.svg'
-                },
-                {
-                    id: '4',
-                    name: 'Arts Academy',
-                    location: 'Chicago, IL',
-                    type: 'academy',
-                    logo: '/images/institutions/arts1.svg'
-                },
-                {
-                    id: '5',
-                    name: 'Medical University',
-                    location: 'Houston, TX',
-                    type: 'university',
-                    logo: '/images/institutions/med1.svg'
-                },
-                {
-                    id: '6',
-                    name: 'Business School',
-                    location: 'Miami, FL',
-                    type: 'school',
-                    logo: '/images/institutions/business1.svg'
-                },
-                {
-                    id: '7',
-                    name: 'Engineering College',
-                    location: 'Seattle, WA',
-                    type: 'college',
-                    logo: '/images/institutions/eng1.svg'
-                },
-                {
-                    id: '8',
-                    name: 'Science Academy',
-                    location: 'Denver, CO',
-                    type: 'academy',
-                    logo: '/images/institutions/science1.svg'
-                }
-            ];
-
-            setInstitutions(data);
-            setFilteredInstitutions(data);
+        const fetchInstitutions = async () => {
+            try {
+                const data = await institutionService.getAll();
+                // Filter only active institutions for public display
+                const activeInstitutions = data.filter((inst: any) => inst.status === 'active');
+                setInstitutions(activeInstitutions as Institution[]);
+                setFilteredInstitutions(activeInstitutions as Institution[]);
+            } catch (error) {
+                console.error('Error fetching institutions:', error);
+                // Fallback to empty array if Firebase fails
+                setInstitutions([]);
+                setFilteredInstitutions([]);
+            }
         };
 
         fetchInstitutions();
@@ -161,11 +112,19 @@ const InstitutionSelector: React.FC = () => {
                                 viewport={{ once: true }}
                             >
                                 <div className="p-4 bg-gray-50 flex items-center justify-center h-32">
-                                    <img
-                                        src={institution.logo}
-                                        alt={`${institution.name} logo`}
-                                        className="h-16 w-auto object-contain"
-                                    />
+                                    {institution.logo ? (
+                                        <img
+                                            src={institution.logo}
+                                            alt={`${institution.name} logo`}
+                                            className="h-16 w-auto object-contain"
+                                        />
+                                    ) : (
+                                        <div className="h-16 w-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                            <span className="text-gray-400 text-xs font-medium">
+                                                {institution.name.charAt(0).toUpperCase()}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="p-4">
                                     <h3 className="text-lg font-semibold text-gray-900 mb-1">{institution.name}</h3>

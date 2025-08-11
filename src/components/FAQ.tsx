@@ -102,9 +102,9 @@ const FAQ: React.FC = () => {
 
                 <div className="text-center mt-10">
                     <p className="text-gray-600 mb-4">Still have questions?</p>
-                    <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                        Contact Support
-                    </button>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfChh_Y9ytSuapMiIhyXQCh5QCj1w55Bnq1RLIjk9bvjA78gw/viewform?usp=header" className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Click here to apply for sponsorship
+                    </a>
                 </div>
             </div>
         </section>

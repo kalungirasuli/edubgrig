@@ -47,20 +47,22 @@ const ContactUs: React.FC = () => {
                                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <span>contact@edubridge.com</span>
+                                    <span>ugandaeducationbridge@gmail.com</span>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
-                                    <span>+1 (555) 123-4567</span>
+                                    <span>+256 755381419</span>
+                                    <span>/</span>
+                                    <span>+256 774382339</span>
                                 </div>
                                 <div className="flex items-center space-x-3">
                                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
-                                    <span>123 Education Street, Learning City, ED 12345</span>
+                                    <span>Nansana Kyebando</span>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +91,7 @@ const ContactUs: React.FC = () => {
                                     />
                                 </div>
                                 <div className="relative">
-                                    <label htmlFor="email" className="absolute -top-2 left-3 bg-white/80 px-2 text-sm font-medium text-gray-600 rounded-md">
+                                <label htmlFor="name" className="absolute -top-3 left-3 px-2 text-sm font-medium text-gray-600 rounded-md bg-gradient-to-b from-white via-white to-white/80 shadow-sm z-10">
                                         Email
                                     </label>
                                     <input
@@ -98,13 +100,13 @@ const ContactUs: React.FC = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
+                                        className="w-full px-4 py-3 bg-white/50 border border-white/30 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm mt-1"
                                         required
                                         placeholder="Enter your email"
                                     />
                                 </div>
                                 <div className="relative">
-                                    <label htmlFor="subject" className="absolute -top-2 left-3 bg-white/80 px-2 text-sm font-medium text-gray-600 rounded-md">
+                                <label htmlFor="name" className="absolute -top-3 left-3 px-2 text-sm font-medium text-gray-600 rounded-md bg-gradient-to-b from-white via-white to-white/80 shadow-sm z-10">
                                         Subject
                                     </label>
                                     <select
@@ -123,8 +125,8 @@ const ContactUs: React.FC = () => {
                                     </select>
                                 </div>
                                 <div className="relative">
-                                    <label htmlFor="message" className="absolute -top-2 left-3 bg-white/80 px-2 text-sm font-medium text-gray-600 rounded-md">
-                                        Message
+                                <label htmlFor="name" className="absolute -top-3 left-3 px-2 text-sm font-medium text-gray-600 rounded-md bg-gradient-to-b from-white via-white to-white/80 shadow-sm z-10">
+                                       Message
                                     </label>
                                     <textarea
                                         id="message"

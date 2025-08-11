@@ -12,6 +12,7 @@ import SchoolDetail from './components/SchoolDetail';
 import ResourcesPage from './components/ResourcesPage';
 import NotFound from './components/NotFound';
 import SignIn from './components/SignIn';
+import AdminRoute from './components/admin/AdminRoute';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/daily-posts" element={<DailyPosts />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/admin" element={<AdminRoute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
